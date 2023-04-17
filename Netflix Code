@@ -1,0 +1,246 @@
+SELECT title AS "Title", -- Name of the title
+       viewingdate AS "Viewing Date", -- Date the title was played
+    CASE WHEN title IN ( -- Using CASE statement to categorize title as show/movie
+        'Minions & More Volume 2',
+                    'The Big 4',
+                    'Belleville Cop',
+                    'Delivery by Christmas',
+                    'Fatal Affair',
+                    'A Jazzman''s Blues',
+                    'Christmas Full of Grace',
+                    'A New York Christmas Wedding',
+                    'Holidate',
+                    'The Wonder',
+                    'Father Christmas Is Back',
+                    'The Noel Diary',
+                    'Christmas with You',
+                    'The Claus Family 2',
+                    'Slumberland',
+                    'The Griot',
+                    'The Bodyguard',
+                    'Falling for Christmas',
+                    'The Redeem Team',
+                    'Dinner at My Place',
+                    'Enola Holmes 2',
+                    'The School for Good and Evil',
+                    'The Curse of Bridge Hollow',
+                    'An�k�l�p�',
+                    'Inheritance',
+                    'Last Seen Alive',
+                    'Home',
+                    'Look Both Ways',
+                    'Finding Hubby 2',
+                    'Fenced In',
+                    'Wedding Season',
+                    'Too Old for Fairy Tales',
+                    'That''s Amor',
+                    'Do Revenge',
+                    'Ivy + Bean',
+                    'Minions & More Volume 1',
+                    'Trees of Peace',
+                    'End of the Road',
+                    'Me Time',
+                    'Barbie Mermaid Power',
+                    'Snow White & the Huntsman',
+                    'Love in the Villa',
+                    'Lemony Snicket''s A Series of Unfortunate Events',
+                    'Don�t Blame Karma!',
+                    'Persuasion',
+                    'The Sea Beast',
+                    'Heart Parade',
+                    'Love & Gelato',
+                    'Chickenhare and the Hamster of Darkness',
+                    'Halftime',
+                    'Barbie Dolphin Magic',
+                    'The Man from Toronto',
+                    'Glamour Girls',
+                    'Senior Year',
+                    'Hustle',
+                    'Rescued by Ruby',
+                    'A Perfect Pairing',
+                    'Mr Bean''s Holiday',
+                    'Marmaduke',
+                    'The Perfect Family',
+                    'Silverton Siege',
+                    'Shrek Forever After',
+                    'Lead Me Home',
+                    'The Adam Project',
+                    'Cloudy with a Chance of Meatballs',
+                    'Barbie Princess Adventure',
+                    'Tall Girl 2')
+THEN 'Movie'
+ELSE 'Show'
+END AS Category,
+ CASE -- Using CASE statement to categorize the title for each Genre
+           WHEN title LIKE '%You:%' THEN 'Drama'
+           WHEN title LIKE '%Next in Fashion:%' THEN 'Reality'
+           WHEN title LIKE '%My Unorthodox Life:%' THEN 'Reality'
+           WHEN title LIKE '%Wednesday:%' THEN 'Comedy'
+           WHEN title LIKE '%Nailed It!:%' THEN 'Reality'
+           WHEN title LIKE '%Selling Sunset:%' THEN 'Reality'
+           WHEN title LIKE '%Minions:%' THEN 'Animation'
+           WHEN title LIKE '%Ivy + Bean:%' THEN 'Family'
+           WHEN title LIKE '%The Claus Family% 'THEN 'Family'
+           WHEN title LIKE '%Dream Home Makeover:%' THEN 'Home and Garden'
+           WHEN title LIKE '%Mind Your Manners:%' THEN 'Comedy'
+           WHEN title LIKE '%The School for Good and Evil%' THEN 'Fantasy'
+           WHEN title LIKE '%The Curse of Bridge Hollow%' THEN 'Horror'
+           WHEN title LIKE '%The Griot%' THEN 'Drama'
+           WHEN title LIKE '%The Bodyguard%' THEN 'Drama'
+           WHEN title LIKE '%The Redeem Team%' THEN 'Drama'
+           WHEN title LIKE '%The Wonder%' THEN 'Drama'
+           WHEN title LIKE '%The Noel Diary%' THEN 'Holiday'
+           WHEN title LIKE '%Holidate%' THEN 'Holiday'
+           WHEN title LIKE '%Man Vs Bee:%' THEN 'Comedy'
+           WHEN title LIKE '%Senior Year%' THEN 'Comedy'
+           WHEN title LIKE '%Hustle%' THEN 'Drama'
+           WHEN title LIKE '%Rescued by Ruby%' THEN 'Family'
+           WHEN title LIKE '%Is It Cake?:%' THEN 'Reality'
+           WHEN title LIKE '%Queen of the South:%' THEN 'Drama'
+           WHEN title LIKE '%Young, Famous & African:%' THEN 'Reality'
+           WHEN title LIKE '%Lemony Snicket%' THEN 'Family'
+           WHEN title LIKE '%Love in the Villa%' THEN 'Romantic Comedy'
+           WHEN title LIKE '%Don�t Blame Karma!%' THEN 'Romantic Comedy'
+           WHEN title LIKE '%Persuasion%' THEN 'Romantic Drama'
+           WHEN title LIKE '%Luckiest Girl Alive%' THEN 'Thriller'
+           WHEN title LIKE '%The Gray Man%' THEN 'Action'
+           WHEN title LIKE '%R.I.P.D. 2:%' THEN 'Action'
+           WHEN title LIKE '%Slumberland%' THEN 'Fantasy'
+           WHEN title LIKE '%I Believe in Santa%' THEN 'Family'
+           WHEN title LIKE '%The Big 4%' THEN 'Documentary'
+           WHEN title LIKE '%The Sea Beast%' THEN 'Horror'
+           WHEN title LIKE '%Heart Parade%' THEN 'Romantic Drama'
+           WHEN title LIKE '%Love & Gelato%' THEN 'Romantic Comedy'
+           WHEN title LIKE '%Marmaduke%' THEN 'Family'
+           WHEN title LIKE '%The Perfect Family%' THEN 'Drama'
+           WHEN title LIKE '%Silverton Siege%' THEN 'Action'
+           WHEN title LIKE '%Mr Bean%' THEN 'Comedy'
+           WHEN title LIKE '%Trees of Peace%' THEN 'Documentary'
+           WHEN title LIKE '%Partner Track:%' THEN 'Drama'
+           WHEN title LIKE '%Home%' THEN 'Documentary'
+           WHEN title LIKE '%Look Both Ways%' THEN 'Documentary'
+           WHEN title LIKE '%Wedding Season%' THEN 'Romantic Comedy'
+           WHEN title LIKE '%Too Old for Fairy Tales%' THEN 'Documentary'
+           WHEN title LIKE '%That''s Amor%' THEN 'Romantic Comedy'
+           WHEN title LIKE '%Someone Borrowed%' THEN 'Comedy'
+           WHEN title LIKE '%Murder%' THEN 'Mystery'
+           WHEN title LIKE '%Blues%' THEN 'Musical'
+           WHEN title LIKE '%Madea%' THEN 'Comedy'
+           WHEN title LIKE '%Christmas%' THEN 'Holiday'
+           WHEN title LIKE '%Barbie%' THEN 'Children'
+           WHEN title LIKE '%Bridgerton%' THEN 'Romance'
+           WHEN title LIKE '%Dirty John%' THEN 'True Crime'
+           WHEN title LIKE '%Dubai Bling%' THEN 'Reality'
+           WHEN title LIKE '%Enola Holmes%' THEN 'Mystery'
+           WHEN title LIKE '%Extraordinary Attorney Woo%' THEN 'Legal Drama'
+           WHEN title LIKE '%Finding Hubby%' THEN 'Romantic Comedy'
+           WHEN title LIKE '%From Scratch%' THEN 'Cooking'
+           WHEN title LIKE '%Glass Onion%' THEN 'Mystery'
+           WHEN title LIKE '%Harry & Meghan%' THEN 'Biography'
+           WHEN title LIKE '%Chickenhare%' THEN 'Animation'
+           WHEN title LIKE '%Chip and Potato%' THEN 'Children'
+           WHEN title LIKE '%Chris Rock%' THEN 'Comedy'
+           WHEN title LIKE '%Disconnect%' THEN 'Romantic Comedy'
+           WHEN title LIKE '%Do Revenge%' THEN 'Drama'
+           WHEN title LIKE '%Fenced In%' THEN 'Drama'
+           WHEN title LIKE '%Glamour Girls%' THEN 'Drama'
+           WHEN title LIKE '%Halftime%' THEN 'Sports'
+           WHEN title LIKE '%Father Christmas Is Back%' THEN 'Holiday'
+           WHEN title LIKE '%Delivery by Christmas%' THEN 'Holiday'
+           WHEN title LIKE '%Fatal Affair%' THEN 'Thriller'
+           WHEN title LIKE '%Before Valentine%' THEN 'Romantic Comedy'
+           WHEN title LIKE '%Belleville Cop%' THEN 'Action'
+           WHEN title LIKE '%Bling Empire%' THEN 'Reality'
+           WHEN title LIKE '%Brown and Friends%' THEN 'Animation'
+           WHEN title LIKE '%Cloudy with a Chance of Meatballs%' THEN 'Animation'
+           WHEN title LIKE '%Dinner at My Place%' THEN 'Romantic Comedy'
+           WHEN title LIKE '%End of the Road%' THEN 'Drama'
+           WHEN title LIKE '%A Perfect Pairing%' THEN 'Romance'
+           WHEN title LIKE '%A Storm for Christmas%' THEN 'Holiday'
+           WHEN title LIKE '%An�k�l�p�%' THEN 'Drama'
+           WHEN title LIKE '%Glory%' THEN 'Drama'
+           WHEN title LIKE '%Your Place or Mine%' THEN 'Romantic Comedy'
+           WHEN title LIKE '%Lyle, Lyle, Crocodile%' THEN 'Children'
+           WHEN title LIKE '%The Wait%' THEN 'Drama'
+           WHEN title LIKE '%You People%' THEN 'Comedy'
+           WHEN title LIKE '%The Wedding Year%' THEN 'Romantic Comedy'
+           WHEN title LIKE '%Sky Rojo%' THEN 'Action'
+           WHEN title LIKE '%Emily in Paris%' THEN 'Romantic Comedy'
+           WHEN title LIKE '%Minions%' THEN 'Animation'
+           WHEN title LIKE '%Savage Beauty%' THEN 'Reality'
+           WHEN title LIKE '%Trevor Noah%' THEN 'Comedy'
+           WHEN title LIKE '%The Claus Family 2%' THEN 'Family'
+           WHEN title LIKE '%Inheritance%' THEN 'Drama'
+           WHEN title LIKE '%Last Seen Alive%' THEN 'Thriller'
+           WHEN title LIKE '%Ivy + Bean%' THEN 'Children'
+           WHEN title LIKE '%Selling The OC%' THEN 'Reality TV'
+           WHEN title LIKE '%Me Time%' THEN 'Comedy'
+           WHEN title LIKE '%Snow White%' THEN 'Fantasy'
+           WHEN title LIKE '%The World''s Most Amazing Vacation Rentals%' THEN 'Reality TV'
+           WHEN title LIKE '%The Man from Toronto%' THEN 'Action Comedy'
+           WHEN title LIKE '%Shrek Forever After%' THEN 'Animation'
+           WHEN title LIKE '%Inventing Anna%' THEN 'Drama'
+           WHEN title LIKE '%The Adam Project%' THEN 'Sci-Fi'
+           WHEN title LIKE '%The Garfield Show%' THEN 'Children'
+           WHEN title LIKE '%Raising Dion%' THEN 'Sci-Fi'
+           WHEN title LIKE '%Tall Girl 2%' THEN 'Teen Comedy'
+                   ELSE 'Unknown'
+         END AS Genre
+FROM NetflixViewingHistory
+WHERE title IS NOT NULL; -- Used to exlcude the null (missing) titles
+
+
+SELECT DATENAME(MONTH,Viewing_Date) as Month, AVG (monthly_movies) AS avg_movies_per_month
+FROM (
+SELECT Viewing_Date, COUNT(Title) AS monthly_movies
+FROM NetflixProjectData
+WHERE category ='Movie'
+AND YEAR(VIEWING_DATE) = '2022'
+GROUP BY Viewing_Date)A
+GROUP BY DATENAME(MONTH,Viewing_Date)
+
+
+--The start date of my viewing history
+SELECT MIN (Viewing_date) AS MinDate
+FROM NetflixProjectData
+
+--The end date of my viewing history
+SELECT MAX (Viewing_date) AS MaxDate
+FROM NetflixProjectData
+
+
+--How many times have I watched a drama show
+SELECT Genre, COUNT(title) AS TitleCount
+FROM NetflixProjectData
+WHERE genre ='Drama'
+AND Category='Show'
+GROUP BY Genre
+
+--How many times have I watched a children movie
+SELECT Genre, COUNT(title) AS TitleCount
+FROM NetflixProjectData
+WHERE genre ='Children'
+AND Category='Movie'
+GROUP BY Genre
+
+--How many time have I watched a romantic show
+SELECT Genre, COUNT(title) AS TitleCount
+FROM NetflixProjectData
+WHERE genre ='Romantic Comedy'
+AND Category='Show'
+GROUP BY Genre
+
+--The average number of movies I watch a month
+
+SELECT Viewing_Date, AVG (monthly_movies) AS avg_movies_per_month
+FROM (
+SELECT Viewing_Date, COUNT(Title) AS monthly_movies
+FROM NetflixProjectData
+WHERE category ='Movie' 
+GROUP BY Viewing_Date)A
+WHERE year (Viewing_Date)= '2022'
+GROUP BY Viewing_Date
+
+
+
+
